@@ -13,12 +13,12 @@
 	<artifactId>mcs-indicadores</artifactId>
 	<version>1.0.0</version>
 	<name>mcs-indicadores</name>
-	<description>Servicios BackEnd de Indicadores minsa</description>
+	<description>Servicios BackEnd de Indicadores minjus</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-<!-- 		<docker.image.prefix>reposdocker.minsa.gob.pe</docker.image.prefix> -->
+<!-- 		<docker.image.prefix>reposdocker.minjus.gob.pe</docker.image.prefix> -->
 	</properties>
 	<dependencies>
 		<dependency>
