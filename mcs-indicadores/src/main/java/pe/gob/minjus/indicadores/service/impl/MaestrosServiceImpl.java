@@ -42,5 +42,15 @@ public class MaestrosServiceImpl implements MaestrosService {
 	public ResponseBeanGeneric listaGrupoServicio() {
 		return maestroDao.listaGrupoServicio();
 	}
+	
+	@Override
+	public ResponseBeanGeneric listaEvento() {
+		return maestroDao.listaEvento();
+	}
+
+	@Override
+	public ResponseBeanGeneric listaTemario(Integer anio) {
+		return maestroDao.listaTemario(anio);
+	}
 
 }

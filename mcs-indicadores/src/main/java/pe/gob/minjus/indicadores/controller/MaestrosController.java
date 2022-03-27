@@ -60,5 +60,17 @@ public class MaestrosController {
 			throws Exception {
 		return maestrosService.listaGrupoServicio();
 	}
+	
+	@GetMapping(value = "/listaEvento", produces = "application/json;charset=UTF-8")
+	public ResponseBeanGeneric getListaEvento(HttpServletRequest request)
+			throws Exception {
+		return maestrosService.listaEvento();
+	}
+	
+	@GetMapping(value = "/listaTemario", produces = "application/json;charset=UTF-8")
+	public ResponseBeanGeneric getListaTemario(@RequestParam("anio") Integer anio,HttpServletRequest request)
+			throws Exception {
+		return maestrosService.listaTemario(anio);
+	}
 
 }

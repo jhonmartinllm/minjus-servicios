@@ -464,11 +464,17 @@ public class IndicadorConsultaDaoImpl implements IndicadorConsultaDao {
 		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withCatalogName("dgdpaj_indicador")
 				.withProcedureName("usp_evento_distrito_cerrado").withoutProcedureColumnMetaDataAccess()
 				.declareParameters(new SqlParameter("p_anio", Types.INTEGER),
-						new SqlParameter("p_distrito_id", Types.INTEGER)
+								   new SqlParameter("p_sede_id", Types.INTEGER),
+								   new SqlParameter("p_tipo_evento_id", Types.VARCHAR),
+								   new SqlParameter("p_temario_id", Types.INTEGER),
+								   new SqlParameter("p_mes_id", Types.INTEGER)
 				);
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("p_anio", req.getAnio());
-		parameters.put("p_distrito_id", req.getIdDistrito());
+		parameters.put("p_sede_id", req.getIdSede());
+		parameters.put("p_tipo_evento_id", req.getIdTipoEvento());
+		parameters.put("p_temario_id", req.getIdTemario());
+		parameters.put("p_mes_id", req.getIdMes());
 		Map<String, Object> resultado = simpleJdbcCall.execute(parameters);
 
 		if (resultado.size() > 0) {
@@ -486,11 +492,17 @@ public class IndicadorConsultaDaoImpl implements IndicadorConsultaDao {
 		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withCatalogName("dgdpaj_indicador")
 				.withProcedureName("usp_evento_distrito_diario").withoutProcedureColumnMetaDataAccess()
 				.declareParameters(new SqlParameter("p_anio", Types.INTEGER),
-						new SqlParameter("p_distrito_id", Types.INTEGER)
+								   new SqlParameter("p_sede_id", Types.INTEGER),
+								   new SqlParameter("p_tipo_evento_id", Types.VARCHAR),
+								   new SqlParameter("p_temario_id", Types.INTEGER),
+								   new SqlParameter("p_mes_id", Types.INTEGER)
 				);
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("p_anio", req.getAnio());
-		parameters.put("p_distrito_id", req.getIdDistrito());
+		parameters.put("p_sede_id", req.getIdSede());
+		parameters.put("p_tipo_evento_id", req.getIdTipoEvento());
+		parameters.put("p_temario_id", req.getIdTemario());
+		parameters.put("p_mes_id", req.getIdMes());
 		Map<String, Object> resultado = simpleJdbcCall.execute(parameters);
 
 		if (resultado.size() > 0) {
@@ -508,13 +520,17 @@ public class IndicadorConsultaDaoImpl implements IndicadorConsultaDao {
 		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withCatalogName("dgdpaj_indicador")
 				.withProcedureName("usp_evento_temario_cerrado").withoutProcedureColumnMetaDataAccess()
 				.declareParameters(new SqlParameter("p_anio", Types.INTEGER),
-						new SqlParameter("p_distrito_id", Types.INTEGER),
-						new SqlParameter("p_sede_id", Types.INTEGER)
+								   new SqlParameter("p_distrito_id", Types.INTEGER),
+								   new SqlParameter("p_sede_id", Types.INTEGER),
+								   new SqlParameter("p_tipo_evento_id", Types.VARCHAR),								   
+								   new SqlParameter("p_mes_id", Types.INTEGER)
 				);
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("p_anio", req.getAnio());
 		parameters.put("p_distrito_id", req.getIdDistrito());
 		parameters.put("p_sede_id", req.getIdSede());
+		parameters.put("p_tipo_evento_id", req.getIdTipoEvento());
+		parameters.put("p_mes_id", req.getIdMes());
 		Map<String, Object> resultado = simpleJdbcCall.execute(parameters);
 
 		if (resultado.size() > 0) {
@@ -532,13 +548,17 @@ public class IndicadorConsultaDaoImpl implements IndicadorConsultaDao {
 		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withCatalogName("dgdpaj_indicador")
 				.withProcedureName("usp_evento_temario_diario").withoutProcedureColumnMetaDataAccess()
 				.declareParameters(new SqlParameter("p_anio", Types.INTEGER),
-						new SqlParameter("p_distrito_id", Types.INTEGER),
-						new SqlParameter("p_sede_id", Types.INTEGER)
+								   new SqlParameter("p_distrito_id", Types.INTEGER),
+								   new SqlParameter("p_sede_id", Types.INTEGER),
+								   new SqlParameter("p_tipo_evento_id", Types.VARCHAR),								   
+								   new SqlParameter("p_mes_id", Types.INTEGER)
 				);
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("p_anio", req.getAnio());
 		parameters.put("p_distrito_id", req.getIdDistrito());
 		parameters.put("p_sede_id", req.getIdSede());
+		parameters.put("p_tipo_evento_id", req.getIdTipoEvento());
+		parameters.put("p_mes_id", req.getIdMes());
 		Map<String, Object> resultado = simpleJdbcCall.execute(parameters);
 
 		if (resultado.size() > 0) {

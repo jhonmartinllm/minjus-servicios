@@ -1,8 +1,8 @@
-package pe.gob.minjus.indicadores.service;
+package pe.gob.minjus.indicadores.dao;
 
 import pe.gob.minjus.indicadores.bean.ResponseBeanGeneric;
 
-public interface MaestrosService {
+public interface MaestrosDao {
 
 	public ResponseBeanGeneric listaMateria();
 	public ResponseBeanGeneric listaDistritoJudicial();
@@ -10,4 +10,7 @@ public interface MaestrosService {
 	public ResponseBeanGeneric listaMes();
 	public ResponseBeanGeneric listaSede(Integer idSede);
 	public ResponseBeanGeneric listaGrupoServicio();
+	public ResponseBeanGeneric listaEvento();
+	public ResponseBeanGeneric listaTemario(Integer anio);
+
 }

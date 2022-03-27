@@ -130,6 +130,41 @@ public class MaestrosDaoImpl implements MaestrosDao {
 		}
 		return response;
 	}
+	
+	@Override
+	public ResponseBeanGeneric listaEvento() {
+		ResponseBeanGeneric response = null;
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withCatalogName("dgdpaj_indicador")
+				.withProcedureName("usp_listar_tipo_evento").withoutProcedureColumnMetaDataAccess();
+		Map<String, Object> parameters = new HashMap<>();
+		Map<String, Object> resultado = simpleJdbcCall.execute(parameters);
 
+		if (resultado.size() > 0) {
+			response = new ResponseBeanGeneric("0000", Mensaje.CONSULTA_EXITOSA.getMensaje(),
+					resultado.get("#result-set-1"));
+		} else {
+			response = new ResponseBeanGeneric("0000", Mensaje.SIN_RESULTADO.getMensaje(), null);
+		}
+		return response;
+	}
+	
+	@Override
+	public ResponseBeanGeneric listaTemario(Integer anio) {
+		ResponseBeanGeneric response = null;
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withCatalogName("dgdpaj_indicador")
+				.withProcedureName("usp_listar_temario").withoutProcedureColumnMetaDataAccess()
+				.declareParameters(new SqlParameter("p_anio", Types.INTEGER) );
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("p_anio", anio);
+		Map<String, Object> resultado = simpleJdbcCall.execute(parameters);
+
+		if (resultado.size() > 0) {
+			response = new ResponseBeanGeneric("0000", Mensaje.CONSULTA_EXITOSA.getMensaje(),
+					resultado.get("#result-set-1"));
+		} else {
+			response = new ResponseBeanGeneric("0000", Mensaje.SIN_RESULTADO.getMensaje(), null);
+		}
+		return response;
+	}
 	
 }
